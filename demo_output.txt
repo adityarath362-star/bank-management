@@ -1,0 +1,36 @@
+=== Creating accounts ===
+  1001 | Aditya Sharma        | Savings  | Balance: 1000.00
+  1002 | Priya Verma          | Current  | Balance: 500.00
+  1003 | Rohit Singh          | Savings  | Balance: 2000.00
+
+=== Deposits & Withdrawals ===
+  1001 balance: 1500.00
+  1002 balance: 200.00
+
+=== Testing overdraft on Current account (allowed up to limit) ===
+  1002 balance after overdraft withdrawal: -800.00
+
+=== Testing minimum balance rule on Savings account (should fail) ===
+  Expected error: Withdrawal denied: minimum balance of 500.00 must be maintained
+
+=== Testing invalid input handling (should fail) ===
+  Expected error: Deposit amount must be positive
+  Expected error: No account found with number '9999'
+
+=== Search by name ===
+  1002 | Priya Verma          | Current  | Balance: -800.00
+
+=== Transaction history for 1001 ===
+  [2026-09-13 14:35:22] DEPOSIT        500.00 | Balance after: 1500.00
+
+=== Month-end interest / fees ===
+  1001 (Savings): Interest credited = 5.00
+  1002 (Current): Maintenance fee charged = 25.00
+  1003 (Savings): Interest credited = 6.67
+
+=== Final account list ===
+  1001 | Aditya Sharma        | Savings  | Balance: 1505.00
+  1002 | Priya Verma          | Current  | Balance: -825.00
+  1003 | Rohit Singh          | Savings  | Balance: 2006.67
+
+Data saved to accounts.csv and transactions.csv
